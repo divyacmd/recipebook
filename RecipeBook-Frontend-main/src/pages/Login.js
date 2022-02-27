@@ -110,7 +110,7 @@ class Login extends Component {
 
 					<br />
 
-					<Button variant="success" block type="submit" disabled={this.state.buttonDisabled}>
+					<Button variant="info" block type="submit" disabled={this.state.buttonDisabled}>
 						Login
 					</Button>
 

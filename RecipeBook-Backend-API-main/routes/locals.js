@@ -49,7 +49,7 @@ router.put("/:id", [auth], async (req, res) => {
         {
             name: req.body.name,
             description: req.body.description,
-            read: req.body.read
+            taste: req.body.taste
         },
         { new: true }
     );

@@ -100,7 +100,7 @@ class ExploreLocal extends Component {
 
 	}
 
-	handlelocalSelect = e => {
+	handleLocalSelect = e => {
 		this.setState({
 			localId: e.value, 
 			name: e.name
@@ -164,12 +164,12 @@ class ExploreLocal extends Component {
 	    		const data = {
 	    			"name": this.state.name,
 	    			"description": this.state.description,
-	    			"taste": this.state.taste,
+	    			"taste": false,
 	    			"date": this.state.date,
 	    		}
 	    		
 	    		await updateLocal(data, this.state.localId)
-	    		toast.dark("Added to pending");
+	    		toast.dark("You should try it out !!!");
 	    	}
 	    	else {
 	    		this.setState({
@@ -181,12 +181,12 @@ class ExploreLocal extends Component {
 	    		const data = {
 	    			"name": this.state.name,
 	    			"description": this.state.description,
-	    			"taste": this.state.taste,
+	    			"taste": true,
 	    			"date": this.state.date
 	    		}
 	    		
 	    		await updateLocal(data, this.state.localId)
-	    		toast.dark("Added to taste");
+	    		toast.dark("It must be delicious !");
 	    	} 
 	    }	
 	    catch (ex) {
@@ -249,22 +249,57 @@ class ExploreLocal extends Component {
 						<div>
 			{ this.state.update 
 				? <div>
+					<Row><Col xs={8}>
 					<br />
 					<Alert variant="danger">
 						<center>
-						<Alert.Heading>Update Local</Alert.Heading>				
+						<Alert.Heading>Update Recipe Details</Alert.Heading>				
 						</center>
 					</Alert>	
 					<br />
 					<UpdateLocal id={this.state.localId} handleCancel={this.setCancel} handleUpdate={this.setUpdate}/>
+					</Col></Row>
 				</div>
 				:
 				<div>
 				<br />
+				<Row>
+							<Col>
+								<Alert variant='success'>
+									<center>
+										<p>
+											Nothing brings people together<br />
+											like <b>Good Food</b>
+										</p>
+									</center>
+								</Alert>
+							</Col>
+							<Col>
+								<Alert variant='info'>
+									<center>
+										<p>
+											<b>Better Food</b><br />
+											like <b>Better Mood</b>
+										</p>
+									</center>
+								</Alert>
+							</Col>
+
+							<Col>
+								<Alert variant='success'>
+									<center>
+										<p>
+											<b>Good Food</b> is the foundation<br />
+											of <b>Genuine Happiness</b>
+										</p>
+									</center>
+								</Alert>
+							</Col>
+						</Row>
 				<Form onSubmit={this.handleSubmit}>
 					<Form.Row>
 						<Col xs={6}>
-						    <Form.Label>Local Name</Form.Label>
+						    <Form.Label>Recipe Name</Form.Label>
 					    </Col>
 					    <Col>
 					    	<Form.Label></Form.Label>
@@ -313,45 +348,9 @@ class ExploreLocal extends Component {
 						<h4>{this.state.name}</h4>
 						<br />
 
-						<Row>
-							<Col>
-								<Alert variant='dark'>
-									<center>
-										<h5>Recipes Tasted</h5>
-										<hr />
-										<p>{this.state.totalTaste}</p>
-									</center>
-								</Alert>
-							</Col>
-							<Col>
-								<Alert variant='dark'>
-									<center>
-										<h5>Wishlist</h5>
-										<hr />
-										<p>{this.state.totalPending}</p>
-									</center>
-								</Alert>
-							</Col>
-
-							<Col>
-								<Alert variant='dark'>
-									<center>
-										<h5>Total</h5>
-										<hr />
-										<p>{this.state.total}</p>
-									</center>
-								</Alert>
-							</Col>
-						</Row>
-
-						<center>
-							<Image src='https://frameru.com/wp-content/uploads/2021/06/Good-food-logo-template.jpg' width='500'></Image>
-						</center>
-
-
 						<br/>
 						<h4>
-							Recipe Preparing Details
+							Recipe Details
 							<Button 
 								variant="outline-warning" 
 								size="sm" 
@@ -378,10 +377,9 @@ class ExploreLocal extends Component {
 							<Col>
 								<Button 
 									variant="outline-primary" 
-									disabled									>
+									onClick={this.handleTaste}
+									>									
 									{this.state.taste ? "Yes, yummy" : "Waiting to taste"}
-									>
-									{this.state.taste ? "True" : "False"}
 								</Button>
 							</Col>
 						</Row>
@@ -397,12 +395,82 @@ class ExploreLocal extends Component {
 							<Col xs={4}><p><b>Description</b></p></Col>
 							<Col><p>{this.state.description}</p></Col>
 						</Row>
+						<br /> <br />
+						<Row>
+							<Col>
+								<Alert variant='light'>
+									<center>
+										<h5>Recipes Tasted</h5>
+										<hr />
+										<p>{this.state.totalTaste}</p>
+									</center>
+								</Alert>
+							</Col>
+							<Col>
+								<Alert variant='light'>
+									<center>
+										<h5>Wishlist</h5>
+										<hr />
+										<p>{this.state.totalPending}</p>
+									</center>
+								</Alert>
+							</Col>
 
+							<Col>
+								<Alert variant='light'>
+									<center>
+										<h5>Total</h5>
+										<hr />
+										<p>{this.state.total}</p>
+									</center>
+								</Alert>
+							</Col>
+						</Row>
+
+
+
+						<Row>
+							<Col>
+								<Alert variant='warning'>
+									<center>
+										<p>
+											Nothing brings people together<br />
+											like <b>Good Food</b>
+										</p>
+									</center>
+								</Alert>
+							</Col>
+							<Col>
+								<Alert variant='primary'>
+									<center>
+										<p>
+											<b>Better Food</b><br />
+											like <b>Better Mood</b>
+										</p>
+									</center>
+								</Alert>
+							</Col>
+
+							<Col>
+								<Alert variant='warning'>
+									<center>
+										<p>
+											<b>Good Food</b> is the foundation<br />
+											of <b>Genuine Happiness</b>
+										</p>
+									</center>
+								</Alert>
+							</Col>
+						</Row>
 						
 						
 					</div>
 					:  
-					<p>Choose a recipe name.</p>}
+					<div>
+					<p>Choose a recipe name.</p>
+					
+					</div>
+				}
 			</div>
 			}
 		</div>

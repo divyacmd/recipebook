@@ -126,7 +126,7 @@ class UpdateForeign extends Component {
 
 					<Form.Group controlId="">
 				    	<Form.Label>Description</Form.Label>
-				    	<Form.Control  
+				    	<Form.Control as="textarea" rows={6} 
 				    		placeholder="Cooking description..." 
 				    		name="description" 
 				    		value={this.state.description} 
@@ -143,7 +143,7 @@ class UpdateForeign extends Component {
 						type="submit"
 						disabled={this.state.buttonDisabled}
 					>
-						Update Foreign
+						Update Recipe
 					</Button>{" "}
 
 					<Button 

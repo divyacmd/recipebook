@@ -41,7 +41,7 @@ npm run test
 npm run dev
 ```
 
-# 5. Run (in development mode)
+# 5. Run (in production mode)
 ```
 npm run start
 ``

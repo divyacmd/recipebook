@@ -60,7 +60,7 @@ class Local extends Component {
 		if (this.state.view==="explore") {
 			return (
 				<div>
-					<Alert variant="dark">
+					<Alert variant="info">
 						<center>
 						<Alert.Heading>Explore Local Recipes</Alert.Heading>				
 						</center>
@@ -72,7 +72,7 @@ class Local extends Component {
 		else if (this.state.view==="localForm") {
 			return (
 				<div>
-					<Alert variant="success">
+					<Alert variant="info">
 						<center>
 						<Alert.Heading>Add New Local Recipe</Alert.Heading>				
 						</center>
@@ -113,7 +113,7 @@ class Local extends Component {
 					</Button>{' '}
 
 					<Button variant="dark" onClick={this.localForm}>
-						Add New
+						Add Recipe
 					</Button>{' '}
 
 					<hr />

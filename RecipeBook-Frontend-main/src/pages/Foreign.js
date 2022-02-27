@@ -60,7 +60,7 @@ class Foreign extends Component {
 		if (this.state.view==="explore") {
 			return (
 				<div>
-					<Alert variant="dark">
+					<Alert variant="info">
 						<center>
 						<Alert.Heading>Explore Foreign Recipes</Alert.Heading>				
 						</center>
@@ -72,7 +72,7 @@ class Foreign extends Component {
 		else if (this.state.view==="foreignForm") {
 			return (
 				<div>
-					<Alert variant="success">
+					<Alert variant="info">
 						<center>
 						<Alert.Heading>Add New Foreign Recipe</Alert.Heading>				
 						</center>
@@ -105,7 +105,7 @@ class Foreign extends Component {
 				
 				<Container>
 					<br />
-					<h3>Foreigns</h3>
+					<h3>Foreign Recipes</h3>
 					<br />
 
 					<Button variant="dark" onClick={this.explore}>
@@ -113,7 +113,7 @@ class Foreign extends Component {
 					</Button>{' '}
 
 					<Button variant="dark" onClick={this.foreignForm}>
-						Add New
+						Add Recipe
 					</Button>{' '}
 
 					<hr />

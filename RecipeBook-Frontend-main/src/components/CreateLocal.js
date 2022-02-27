@@ -110,7 +110,7 @@ class CreateLocal extends Component {
 					<Form.Row>
 						<Form.Group as={Col} controlId="">
 							<Form.Label>Description</Form.Label>
-							<Form.Control 
+							<Form.Control as="textarea" rows={6}
 								type="text"
 								placeholder="Cooking description..." 
 								name="description" 

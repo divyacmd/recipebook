@@ -87,7 +87,6 @@ class UpdateLocal extends Component {
 		return (
 			<div>
 				<ToastContainer hideProgressBar position="bottom-right"  />
-
 				<Form onSubmit={this.handleSubmit}>
 					<Form.Row>
 						<Form.Group as={Col} controlId="">
@@ -126,7 +125,7 @@ class UpdateLocal extends Component {
 
 					<Form.Group controlId="">
 				    	<Form.Label>Description</Form.Label>
-				    	<Form.Control  
+				    	<Form.Control as="textarea" rows={6} 
 				    		placeholder="Cooking description..." 
 				    		name="description" 
 				    		value={this.state.description} 
@@ -143,7 +142,7 @@ class UpdateLocal extends Component {
 						type="submit"
 						disabled={this.state.buttonDisabled}
 					>
-						Update Local
+						Update Recipe
 					</Button>{" "}
 
 					<Button 

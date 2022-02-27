@@ -65,27 +65,27 @@ class Home extends Component {
 	render() {
 		return (
 			<div>
-				<Navbar expand="lg" bg="dark" variant="primary">
+				<Navbar expand="lg" bg="info" variant="info">
 				    <Navbar.Brand>
 				    	RecipeBook
 				    </Navbar.Brand>
 				    <Nav className="ml-auto">
 						
 				    <Nav.Link>
-				      	<Button variant="dark" onClick={this.local}>
-							Local
+				      	<Button variant="info" onClick={this.local}>
+							Local Recipes
 						</Button>{' '}
 				    </Nav.Link>
 
 				    <Nav.Link>
-				      	<Button variant="dark" onClick={this.foreign}>
-							Foreign
+				      	<Button variant="info" onClick={this.foreign}>
+							Foreign Recipes
 						</Button>{' '}
 				    </Nav.Link>
 
 				    <Nav.Link>
-				      	<Button variant="dark" onClick={this.settings}>
-							Settings
+				      	<Button variant="info" onClick={this.settings}>
+							Sign Out
 						</Button>{' '}
 				    </Nav.Link>
 				  	</Nav>
